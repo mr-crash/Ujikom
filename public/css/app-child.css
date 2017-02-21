@@ -1,0 +1,257 @@
+/*Material*/
+body{
+	font-variant: small-caps;
+}
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background-color: #634338;
+    color: #fff;
+    padding: 1px 3px 1px 3px;
+}
+.footer>a{
+    color: #fff;
+}
+.to-top {
+  display: none;
+  position: fixed;
+  right: 25px;
+  bottom: 20px;
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 45px;
+  font-family: monospace;
+  padding: 0;
+  vertical-align: middle;
+  padding-top: 20px; 
+}
+/*End Material*/
+
+/*Form*/
+.btn{
+    border-radius: 0px;
+}
+.form-control{
+    font-variant: normal;
+    border: 0px;
+    border-radius: 2px;
+    border-bottom: 2px solid #795548;
+    box-shadow: none;
+}
+.form-control:focus{
+	border-color: #634338;
+    box-shadow: inset 0px -6px 12px -10px #000, 0px 6px 8px -6px #000;
+}
+.input-group-addon{
+    background-color: #634338;
+    border: 1px solid #090909;
+    color: #fff;
+    border-radius: 0px;
+}
+.btn:hover{
+    border-color: #634338;
+    box-shadow: inset 0 1px 1px #795548,0 0 8px #795548;
+}
+.help-block{
+	color: #634338;
+}
+.pagination{
+    border-radius: 0px;
+    margin: 0px;
+}
+.pagination>li:first-child>a, .pagination>li:first-child>span{
+    border-radius: 0px;
+    border-color: #634338;
+    color: #000;
+}
+ul.pagination>li.disabled{
+    color: #000;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover{
+    border-color: #634338;
+}
+.pagination>li:last-child>a, .pagination>li:last-child>span{
+    border-radius: 0px;  
+    border-color: #634338;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #634338;
+    border-color: #634338;
+}
+.pagination>li>a, .pagination>li>span{
+	color: #634338;
+    border-color: #634338;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
+	color: #fff;
+	background-color: #634338;
+	border-color: #634338;
+}
+/*End Form*/
+
+/*Foto Profil*/
+.foto-profile{
+    margin: auto;
+    width: 320px;
+    padding: 3px;
+    background-color: #634338;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 320px;
+    border-radius: 50%;
+    border: 3px solid #634338;
+    box-shadow: inset 0px 0px 29px 0px #fff,0px 0px 18px 0px #000;
+}
+.foto-comment{
+    padding-top: calc(100% - 23px);
+}
+.fp{
+    width: 100%;
+}
+/*End Foto Profil*/
+
+/*Panel*/
+.panel{
+	border-radius: 0px;
+}
+.panel-default>.panel-heading {
+    color: white;
+    background-color: #634338;
+    border-radius: 0px;
+    border-color: hsla(0,0%,100%,.15);
+}
+.panel-default {
+	box-shadow: 3px 4px 9px -3px gray;
+    border-color: #634338;
+}
+/*End Panel*/
+
+/*Navbar*/
+.image{
+	padding: 4px;
+}
+.navbar-default {
+    background-color: #634338;
+    border-color: #634338;
+    box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.26);
+    position: fixed;
+    width: 100%;
+}
+.navbar-default .navbar-brand{
+	color: white;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: white;
+    text-transform: lowercase;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: white;
+    color: #634338;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #634338;
+    background-color: white;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #634338;
+    background-color: white;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #634338;
+}
+.navbar-nav>li>.dropdown-menu{
+	margin-top: 5px;
+    border-radius: 0px;
+    border-color: #634338;
+}
+/*End Navbar*/
+
+/*Loader*/
+#preloader{
+	background: none repeat scroll 0 0 #634338;
+}
+.circle-loader .path{
+	stroke: white;
+}
+.text-loading{
+	position: fixed;
+    top: calc(50% - 97px);
+    right: calc(50% - 95px);
+    color: white;
+    font-size: 28px;
+}
+.loading{
+	width: 83%;
+    margin: 12px 0px 0px 29px;
+}
+/*End Loader*/
+
+/*Low Width Screen*/
+#LWS{
+    position: fixed;
+    top: calc(50% - 30px);
+    text-align: center;
+    width: 100%;
+	display: none;
+}
+#LWS>b{
+	color: white;
+	font-size: 22px;
+}
+.action-mobile{
+    display: none;
+}
+/*End Low Width Screen*/
+
+/* CUSTOM MEDIA QUERIES FOR 3xx PX */ /*----------------------------------------------------------------------------------------*/
+@media screen and (max-width: 319px){
+    #app{
+    	display: none;
+    }
+    #LWS{
+	    display: table;
+    }
+    body{
+    	background-color: #634338;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 425px){
+    .action-web{
+        display: none;
+    }
+    .action-mobile{
+        display: table;
+        
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 375px){
+ .foto-profile{
+    width: 100%;
+    height: auto;
+ }   
+}
+/*@media screen and (min-width: 376px) and (max-width: 480px){
+    
+}
+@media screen and (min-width: 481px) and (max-width: 767px){
+    
+}
+@media (min-width: 768px) and (max-width: 1040px) {
+
+}*/
+@media screen and (min-width: 320px) and (max-width: 767px){
+ 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    	background-color: #fff ;
+    	color: #634338;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    	background-color: #634338;
+    	color: #fff;
+	}   
+}

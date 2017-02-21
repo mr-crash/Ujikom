@@ -1,0 +1,29 @@
+body{
+	background-color: #634338;
+	color: #fff;
+	font-variant: small-caps;
+}
+a:hover{
+	color: #000;
+}
+
+/*Loader*/
+#preloader{
+	background: none repeat scroll 0 0 #634338;
+}
+.circle-loader .path{
+	stroke: #ff0000;
+}
+.text-loading{
+	position: fixed;
+	top: calc(50% - 78px);
+    right: calc(50% - 109px);
+    color: #ff0000;
+    font-size: 28px;
+    text-align: center;
+}
+.loading{
+	width: 83%;
+    margin: 12px 0px 0px 29px;
+}
+/*End Loader*/

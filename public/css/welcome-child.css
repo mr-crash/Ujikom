@@ -1,0 +1,66 @@
+body{
+	background-color: #634338;
+	/*background-image: url('/boy05.png');*/
+	font-variant: small-caps;
+	color: white;
+}
+.links > a{
+	color: white;
+	border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.links > a:hover{
+	background-color: white;
+	color: #634338;
+}
+div.creator{
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	padding: 2px 3px 2px 3px;
+	margin: 0px 5px 5px 0px;
+	background-color: white;
+	color: #634338;
+	border-radius: 7px;
+	text-align: center;
+	font-variant: normal;
+	font-family: fantasy;
+}
+div.creator:hover{
+	background-color: #000;
+}
+#LWS{
+	position: fixed;
+    top: calc(50% - 128px);
+    right: calc(50% - 112px);
+    text-align: center;
+    width: 100%;
+    display: none;
+}
+#LWS>b{
+	color: white;
+	font-size: 22px;
+}
+@media screen and (max-width: 319px){
+    .full-height{
+    	display: none;
+    }
+    #LWS{
+	    display: block;
+    }
+    body{
+    	background-color: #634338;
+    }
+}
+.form-control{
+	border-radius: 0px;
+	border-color: rgba(152,203,232,.6);
+}
+#myBar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: #634338;
+    height: 100vh;
+  }
