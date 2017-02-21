@@ -68,6 +68,16 @@ class KategoriLemburController extends Controller
      */
     public function store(Request $request)
     {
+        $data = Request::all();
+        $sama = KategoriLembur::where('jabatan_id',$data['jabatan_id'])->where('golongan_id',$data['golongan_id'])->first();
+
+        if(isset($sama->id))
+        {
+            $ulr = 'kategori_lembur/'.$sama->id;
+            return redirect('kategori_lembur/create?errors_unique&url='.$ulr);
+        }
+
+
         $validati = array(
             'kode_lembur'=>'required|unique:kategori_lemburs',
             'jabatan_id'=>'required',
@@ -84,7 +94,7 @@ class KategoriLemburController extends Controller
 
         // dd(Request::all());
 
-        KategoriLembur::create(Request::all());
+        KategoriLembur::create($data);
 
         return redirect('kategori_lembur');
 

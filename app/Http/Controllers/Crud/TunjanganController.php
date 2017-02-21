@@ -58,6 +58,11 @@ class TunjanganController extends Controller
      */
     public function store(Request $request)
     {
+        $data = Request::all();
+        $sama = Tunjangan::where('jabatan_id',$data['jabatan_id'])->where('golongan_id',$data['golongan_id'])->first();
+        if(isset($sama->id)){
+            // dd('sudah ada');
+        }
         $validati = array(
             'kode_tunjangan'=>'required|unique:tunjangans',
             'jabatan_id'=>'required',
@@ -73,7 +78,6 @@ class TunjanganController extends Controller
         if ($validation->fails()) {
             return redirect('tunjangan/create')->withErrors($validation)->withInput();
         }
-        $data = Request::all();
         Tunjangan::create($data);
         return redirect('tunjangan');
     }

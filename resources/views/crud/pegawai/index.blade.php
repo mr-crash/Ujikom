@@ -54,15 +54,21 @@ if (!isset($field_old)) {
                         </thead>
                         <tbody>
                 		@foreach ($datas as $data)
+                        @if(Auth::user()->email != $data->user->email)
                 		<tr>
                 			<td>{{$data->nip}}</td>
                             <td>{{$data->user->name}}</td>
                 			<td>{{$data->jabatan->nama_jabatan}}</td>
                 			<td class="action-web"><a href="{{url($root,$data->id)}}" class="btn btn-default">View</a></td>
                             <td class="action-web"><a href="{{route('pegawai.edit',$data->id)}}" class="btn btn-warning lebar">Edit</a></td>
-                            <td class="action-web">{!! Form::open(['method'=> 'DELETE', 'route'=>['pegawai.destroy',$data->id]]) !!}
+                            <td class="action-web">
+                            @if(Auth::user()->type_user=='admin')
+                            {!! Form::open(['method'=> 'DELETE', 'route'=>['pegawai.destroy',$data->id]]) !!}
                             {!! Form::submit('Delete', ['class'=>'btn btn-danger lebar']) !!}
-                            {!! Form::close() !!}</td>
+                            {!! Form::close() !!}
+                            @else
+                            {!! Form::label('','Delete',['class'=>'btn btn-danger lebar disabled']) !!}
+                            @endif</td>
                             <td class="action-mobile dropdown" colspan="3">
                                 <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Action <span class="caret"></span>
@@ -74,6 +80,7 @@ if (!isset($field_old)) {
                                 </ul>
                             </td>
                 		</tr>
+                        @endif
                 		@endforeach
                         </tbody>
                         @else

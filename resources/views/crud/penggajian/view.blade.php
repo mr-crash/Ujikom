@@ -33,11 +33,33 @@
     						<td>{{$pegawai->user->name}}</td>
     					</tr>
     					<tr>
+    						<td>Jabatan {{$pegawai->jabatan->nama_jabatan}}</td>
+    						<td>
+    						<div class="input-group">
+								<span class="input-group-addon">Rp.</span>
+								<?php $pegawai->jabatan->tunjangan_uang = number_format($pegawai->jabatan->tunjangan_uang,0,',','.'); ?>
+								{!! Form::label('tunjangan_uang',$pegawai->jabatan->tunjangan_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
+								<span class="input-group-addon">.00</span>
+							</div>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td>Golongan {{$pegawai->golongan->nama_golongan}}</td>
+    						<td>
+    						<div class="input-group">
+								<span class="input-group-addon">Rp.</span>
+								<?php $pegawai->golongan->tunjangan_uang = number_format($pegawai->golongan->tunjangan_uang,0,',','.'); ?>
+								{!! Form::label('tunjangan_uang',$pegawai->golongan->tunjangan_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
+								<span class="input-group-addon">.00</span>
+							</div>
+    						</td>
+    					</tr>
+    					<tr>
     						<td>Gaji Pokok</td>
     						<td>
     						<div class="input-group">
 								<span class="input-group-addon">Rp.</span>
-								<?php $data->gaji_pokok = number_format($data->gaji_pokok,2,',','.'); ?>
+								<?php $data->gaji_pokok = number_format($data->gaji_pokok,0,',','.'); ?>
 								{!! Form::label('besaran_uang',$data->gaji_pokok,['class'=>'form-control','id'=>'appendprepend']) !!}
 								<span class="input-group-addon">.00</span>
 							</div>
@@ -48,7 +70,7 @@
     						<td>
     						<div class="input-group">
 								<span class="input-group-addon">Rp.</span>
-								<?php $data->total_gaji = number_format($data->total_gaji,2,',','.'); ?>
+								<?php $data->total_gaji = number_format($data->total_gaji,0,',','.'); ?>
 								{!! Form::label('besaran_uang',$data->total_gaji,['class'=>'form-control','id'=>'appendprepend']) !!}
 								<span class="input-group-addon">.00</span>
 							</div>
@@ -59,7 +81,7 @@
     						<td>
     						<div class="input-group">
     						<span class="input-group-addon">Rp.</span>
-								<?php $tunjangan->besaran_uang = number_format($tunjangan->besaran_uang,2,',','.'); ?>
+								<?php $tunjangan->besaran_uang = number_format($tunjangan->besaran_uang,0,',','.'); ?>
 								{!! Form::label('besaran_uang',$tunjangan->besaran_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
 								<span class="input-group-addon">.00</span>
 							</div>

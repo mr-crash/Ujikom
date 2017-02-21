@@ -67,7 +67,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('home')}}">Home</a></li>
-                        @if(Auth::user()->type_user == "admin")
+                        @if(Auth::user()->type_user == "admin"||Auth::user()->type_user == 'hrd')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span>
                             </a>
@@ -88,7 +88,6 @@
                                 <li><a href="{{url('penggajian')}}">Penggajian</a></li>
                             </ul>
                         </li>
-                        @elseif(Auth::user()->type_user == 'hrd')
                         @endif
                     </ul>
 

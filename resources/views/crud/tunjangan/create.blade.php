@@ -72,7 +72,7 @@
                             <td>{!! Form::label('Status') !!}</td>
                             <td>
                             <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                            {!! Form::text('status',null,['class'=>'form-control']) !!}
+                            {!! Form::select('status',['','Sudah Menikah','Belum Menikah'],'',['class'=>'form-control']) !!}
                             </div>
                             @if ($errors->has('status'))
                                 <span class="help-block">

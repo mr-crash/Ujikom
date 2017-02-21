@@ -53,7 +53,15 @@
                         </td>
                         <td>
                             <div class="form-group{{ $errors->has('type_user') ? ' has-error' : '' }}">
-                                {!! Form::select('type_user',[''=>'','admin'=>'Admin','hrd'=>'HRD','pegawai'=>'Pegawai'],$data->user->type_user,['class'=>'form-control']) !!}
+                            <?php 
+                                $selection = [''=>''];
+                                if (Auth::user()->type_user == 'admin') {
+                                    $selection['admin']='Admin';
+                                }
+                                    $selection['hrd']='HRD';
+                                    $selection['pegawai']='Pegawai';
+                             ?>
+                                {!! Form::select('type_user',$selection,$data->user->type_user,['class'=>'form-control']) !!}
                                 @if ($errors->has('type_user'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('type_user') }}</strong>

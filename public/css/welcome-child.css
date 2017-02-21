@@ -53,9 +53,10 @@ div.creator:hover{
     	background-color: #634338;
     }
 }
-.form-control{
-	border-radius: 0px;
-	border-color: rgba(152,203,232,.6);
+.form-control {
+    border-radius: 0px;
+    border-color: rgba(152,203,232,.6);
+    font-variant: normal;
 }
 #myBar{
     position: fixed;

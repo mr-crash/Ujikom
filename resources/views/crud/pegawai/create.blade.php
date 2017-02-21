@@ -49,7 +49,15 @@
                         <label for="type_user" class="col-md-4 control-label">Permisions</label>
 
                         <div class="col-md-6">
-                            {!! Form::select('type_user',[''=>'','admin'=>'Admin','hrd'=>'HRD','pegawai'=>'Pegawai'],'',['class'=>'form-control']) !!}
+                            <?php 
+                                $selection = [''=>''];
+                                if (Auth::user()->type_user == 'admin') {
+                                    $selection['admin']='Admin';
+                                }
+                                    $selection['hrd']='HRD';
+                                    $selection['pegawai']='Pegawai';
+                             ?>
+                            {!! Form::select('type_user',$selection,'',['class'=>'form-control']) !!}
                             @if ($errors->has('type_user'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('type_user') }}</strong>

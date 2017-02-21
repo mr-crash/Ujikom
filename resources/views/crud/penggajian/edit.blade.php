@@ -22,21 +22,23 @@
                             <td>{!! Form::label('',$pegawai->user->name,['class'=>'form-control']) !!}</td>
                         </tr>
                         <tr>
-                            <td>Jumlah Jam Lembur</td>
+                            <td>Jabatan {{$pegawai->jabatan->nama_jabatan}}</td>
                             <td>
                             <div class="input-group">
-                                {!! Form::label('jumlah_jam',$data->jumlah_jam_lembur,['class'=>'form-control','id'=>'appendprepend','style'=>'text-align:right;']) !!}
-                                <span class="input-group-addon">Jam</span>
+                                <span class="input-group-addon">Rp.</span>
+                                <?php $pegawai->jabatan->tunjangan_uang = number_format($pegawai->jabatan->tunjangan_uang,0,',','.'); ?>
+                                {!! Form::label('tunjangan_uang',$pegawai->jabatan->tunjangan_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
+                                <span class="input-group-addon">.00</span>
                             </div>
                             </td>
                         </tr>
                         <tr>
-                            <td>Jumlah Uang Lembur</td>
+                            <td>Golongan {{$pegawai->golongan->nama_golongan}}</td>
                             <td>
                             <div class="input-group">
                                 <span class="input-group-addon">Rp.</span>
-                                <?php $data->jumlah_uang_lembur = number_format($data->jumlah_uang_lembur,2,',','.'); ?>
-                                {!! Form::label('besaran_uang',$data->jumlah_uang_lembur,['class'=>'form-control','id'=>'appendprepend']) !!}
+                                <?php $pegawai->golongan->tunjangan_uang = number_format($pegawai->golongan->tunjangan_uang,0,',','.'); ?>
+                                {!! Form::label('tunjangan_uang',$pegawai->golongan->tunjangan_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
                                 <span class="input-group-addon">.00</span>
                             </div>
                             </td>
@@ -59,6 +61,26 @@
                             <span class="input-group-addon">Rp.</span>
                                 <?php $tunjangan->besaran_uang = number_format($tunjangan->besaran_uang,2,',','.'); ?>
                                 {!! Form::label('besaran_uang',$tunjangan->besaran_uang,['class'=>'form-control','id'=>'appendprepend']) !!}
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Jam Lembur</td>
+                            <td>
+                            <div class="input-group">
+                                {!! Form::label('jumlah_jam',$data->jumlah_jam_lembur,['class'=>'form-control','id'=>'appendprepend','style'=>'text-align:right;']) !!}
+                                <span class="input-group-addon">Jam</span>
+                            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jumlah Uang Lembur</td>
+                            <td>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp.</span>
+                                <?php $data->jumlah_uang_lembur = number_format($data->jumlah_uang_lembur,2,',','.'); ?>
+                                {!! Form::label('besaran_uang',$data->jumlah_uang_lembur,['class'=>'form-control','id'=>'appendprepend']) !!}
                                 <span class="input-group-addon">.00</span>
                             </div>
                             </td>

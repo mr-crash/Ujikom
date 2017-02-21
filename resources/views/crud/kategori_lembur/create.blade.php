@@ -76,6 +76,15 @@
                             @endif
                             </td>
                         </tr>
+                        @if(isset($_GET['errors_unique']))
+                        <tr>
+                            <td colspan="999" class="danger">
+                                <span class="help-block">
+                                    <strong>Pegawai dan Golongan yang sama sudah tedatar<br>silahkan check  <a href="{{url($_GET['url'])}}">disini</a></strong>
+                                </span>
+                            </td>
+                        </tr>
+                        @endif
                 		<tr>
                 			<td>{!! Form::label('Besaran uang') !!}</td>
                 			<td>

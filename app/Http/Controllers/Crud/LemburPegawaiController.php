@@ -71,6 +71,7 @@ class LemburPegawaiController extends Controller
      */
     public function store(Request $request)
     {
+
         $kategori_lemburs = KategoriLembur::all();
         $pegawais = Pegawai::with('user')->get();
         $data = Request::all();
@@ -92,6 +93,7 @@ class LemburPegawaiController extends Controller
             $error_klnf = true;
             return view('crud.lembur_pegawai.create',compact('kategori_lemburs','pegawais','error_klnf'));
         }
+
         $data['kategori_lembur_id'] = $check->id;
         // dd($data);
         LemburPegawai::create($data);
