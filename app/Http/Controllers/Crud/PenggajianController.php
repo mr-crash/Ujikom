@@ -76,12 +76,27 @@ class PenggajianController extends Controller
      */
     public function store(Request $request)
     {
-        $penggajian = array(); 
         $data = Request::all();
+        $penggajian = array();
         $pegawai = Pegawai::where('id',$data['id'])->with('user','lembur_pegawai','golongan','jabatan','tunjangan_pegawai')->first();
         if(!isset($pegawai->tunjangan_pegawai->id))
         {
             return redirect('penggajian/'.'create'.'/?errors=notunjangan');
+        }
+        else
+        {
+            $now = Carbon::now();
+
+            $kode_tunjangan_id = TunjanganPegawai::where('pegawai_id', $data['id'])->first()->id;
+            $penggajian = Penggajian::where('tunjangan_pegawai_id', $kode_tunjangan_id)->first();
+
+            if(isset($penggajian->id))
+            {
+            if($penggajian->created_at->month==$now->month)
+            {
+                return redirect('penggajian/create'.'?errors_nutadi');
+            }
+            }
         }
 
         if(isset($pegawai->lembur_pegawai->first()->id))
@@ -140,7 +155,13 @@ class PenggajianController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Penggajian::where('id',$id)->with('tunjangan_pegawai')->first();
+        $pegawai = Pegawai::where('id',$data->tunjangan_pegawai->pegawai_id)->with('user','jabatan','golongan','tunjangan_pegawai')->first();
+        $lemburs = LemburPegawai::where('pegawai_id',$pegawai->id)->paginate(5);
+        $kategori_lembur = KategoriLembur::where('id',$lemburs->first()->kategori_lembur_id)->first();
+        $tunjangan = Tunjangan::where('id',$data->tunjangan_pegawai->kode_tunjangan_id)->first();
+        // dd($data,$pegawai,$lemburs,$kategori_lembur,$tunjangan);
+        return view('crud.penggajian.view',compact('data','pegawai','lemburs','kategori_lembur','tunjangan'));
     }
 
     /**
@@ -151,7 +172,12 @@ class PenggajianController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Penggajian::where('id', $id)->first();
+        $pegawai = Pegawai::where('id',$data->tunjangan_pegawai->pegawai_id)->with('user','jabatan','golongan','tunjangan_pegawai')->first();
+        $lemburs = LemburPegawai::where('pegawai_id',$pegawai->id)->paginate(5);
+        $kategori_lembur = KategoriLembur::where('id',$lemburs->first()->kategori_lembur_id)->first();
+        $tunjangan = Tunjangan::where('id',$data->tunjangan_pegawai->kode_tunjangan_id)->first();
+        return view('crud.penggajian.edit', compact('data','pegawai','lemburs','kategori_lembur','tunjangan'));
     }
 
     /**
@@ -163,7 +189,15 @@ class PenggajianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Request::all();
+
+        Penggajian::where('id', $id)->update([
+            'tanggal_pengambilan'=>Carbon::now(),
+            'status_pengambilan'=>1,
+            'petugas_penerima'=>$data['petugas_penerima'],
+            ]);
+        $root = 'penggajian/'.$id;
+        return redirect($root);
     }
 
     /**
@@ -174,6 +208,7 @@ class PenggajianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Penggajian::where('id', $id)->delete();
+        return redirect('penggajian');
     }
 }

@@ -34,6 +34,11 @@
                                     <strong>Silahkan untuk membuatnya <a href="{{url('tunjangan','create')}}">disini</a></strong>
                             </span>
                             @endif
+                            @if (isset($_GET['errors_nutadi']))
+                            <span class="help-block">
+                                    <strong>Pegawai ini sudah melakukan penggajian bulan ini</strong>, 
+                            </span>
+                            @endif
                             @if ($errors->has('id'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('id') }}</strong>

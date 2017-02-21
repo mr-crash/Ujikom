@@ -67,25 +67,29 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('home')}}">Home</a></li>
-                        <!-- <li class="dropdown">
+                        @if(Auth::user()->type_user == "admin")
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu" role="menu"> -->
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{url('pegawai')}}">Pegawai</a></li>
                                 <li><a href="{{url('jabatan')}}">Jabatan</a></li>
                                 <li><a href="{{url('golongan')}}">Golongan</a></li>
-                                <li><a href="{{url('pegawai')}}">Pegawai</a></li>
-                           <!--  </ul>
+                            </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gaji<span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu" role="menu"> -->                            
+                            <ul class="dropdown-menu" role="menu">                            
                                 <li><a href="{{url('kategori_lembur')}}">Kategori Lembur</a></li>
                                 <li><a href="{{url('lembur_pegawai')}}">Lembur Pegawai</a></li>
                                 <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
                                 <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
-                            <!-- </ul>
-                        </li> -->
+                                <li><a href="{{url('penggajian')}}">Penggajian</a></li>
+                            </ul>
+                        </li>
+                        @elseif(Auth::user()->type_user == 'hrd')
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

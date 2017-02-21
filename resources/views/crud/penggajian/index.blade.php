@@ -61,16 +61,18 @@ if (!isset($field_old)) {
                             <td><?php 
                             switch ($data->status_pengambilan) {
                                 case 1 :
-                                    echo "Sudah Diambil";
+                                    echo "<b href='#' class='btn btn-danger disabled'>Sudah Diambil</b>";
                                     break;
                                 
                                 case 0:
-                                    echo "Belum Diambil";
+                                    echo "<a href=".url($root.'/'.$data->id.'/edit')." class='btn btn-primary'>Belum Diambil</a>";
                                     break;
                                 default :
                                     break;
                             }
-                             ?></td>
+                             ?>
+                                 
+                             </td>
                 			<td class="action-web"><a href="{{url($root,$data->id)}}" class="btn btn-default">View</a></td>
                             <td class="action-web"></td>
                             <td class="action-web">{!! Form::open(['method'=> 'DELETE', 'route'=>[$root.'.destroy',$data->id]]) !!}
