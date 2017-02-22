@@ -20,7 +20,7 @@ class TunjanganController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin-hrd');
+        $this->middleware('admin-keuangan-hrd');
     }
     /**
      * Display a listing of the resource.
@@ -92,6 +92,12 @@ class TunjanganController extends Controller
         {
             return redirect('tunjangan/create?errors_ilegal');
         }
+        $sama = Tunjangan::where('jabatan_id',$data['jabatan_id'])->where('golongan_id',$data['golongan_id'])->where('status',$data['status'])->where('jumlah_anak', $data['jumlah_anak'])->first();
+        // dd($sama);
+        if(isset($sama->id))
+        {
+            return redirect('tunjangan/create?errors_sama='.$sama->id);
+        }
         Tunjangan::create($data);
         return redirect('tunjangan');
     }
@@ -134,6 +140,7 @@ class TunjanganController extends Controller
     public function update(Request $request, $id)
     {
         $data = Request::all();
+        $old_data = Tunjangan::where('id', $id)->first();
         $validati = array(
             'kode_tunjangan'=>'required|unique:tunjangans',
             'jabatan_id'=>'required',
@@ -142,9 +149,8 @@ class TunjanganController extends Controller
             'jumlah_anak'=>'required|max:2',
             'besaran_uang'=>'required|max:12',
             );
-        $old_kode = Tunjangan::where('id', $id)->first()->kode_tunjangan;
 
-        if ($old_kode == $data['kode_tunjangan']){
+        if ($old_data->kode_tunjangan == $data['kode_tunjangan']){
             $validati['kode_tunjangan'] = 'required';
         }
 
@@ -153,6 +159,18 @@ class TunjanganController extends Controller
 
         if ($validation->fails()) {
             return redirect('tunjangan/'.$id.'/edit')->withErrors($validation)->withInput();
+        }
+        if($data['status']=='Belum Menikah'&&$data['jumlah_anak']>0)
+        {
+            return redirect('tunjangan/'.$id.'/edit?errors_ilegal');
+        }
+        if($data['jabatan_id']!=$old_data['jabatan_id']||$data['golongan_id']!=$old_data['golongan_id']||$data['jumlah_anak']!=$old_data['jumlah_anak'])
+        {
+            $sama = Tunjangan::where('jabatan_id',$data['jabatan_id'])->where('golongan_id',$data['golongan_id'])->where('status',$data['status'])->where('jumlah_anak', $data['jumlah_anak'])->first();
+            if(isset($sama->id))
+            {
+                return redirect('tunjangan/'.$id.'/edit?errors_sama='.$sama->id);
+            }
         }
         // dd($data);
         Tunjangan::where('id',$id)->update([

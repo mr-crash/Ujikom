@@ -20,6 +20,9 @@
                         <tr>
                             <td>{!! Form::label('pegawai') !!}</td>
                             <td>
+                            @if(!isset($pegawais->first()->id))
+                            <div class="col-md-12 btn btn-danger disabled">Table Pegawai is Null</div>
+                            @else
                             <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
                             <select name="id" class="form-control">
                                 <option></option>
@@ -28,6 +31,7 @@
                                 @endforeach
                             </select>
                             </div>
+                            @endif
                             @if (isset($_GET['errors']))
                             <span class="help-block">
                                     <strong>Pegawai ini tidak memiliki tunjangan</strong>, 

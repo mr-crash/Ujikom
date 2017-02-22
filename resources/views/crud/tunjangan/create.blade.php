@@ -118,6 +118,11 @@
                         	@endif
 							</td>
                 		</tr>
+                        @if(isset($_GET['errors_sama']))
+                        <tr>
+                            <td colspan="2" class="danger">Data Yang Anda Masukan Ada yang sama, silahkan lihat <a href="{{url('tunjangan/'.$_GET['errors_sama'])}}">disini</a></td>
+                        </tr>
+                        @endif
                 		<tr>
                 			<td colspan="2" align="right">{!! Form::submit('Create',['class'=>'btn btn-success']) !!}</td>
                 		</tr>

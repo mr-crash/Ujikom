@@ -20,7 +20,7 @@ class TunjanganPegawaiController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin-hrd');
+        $this->middleware('admin-keuangan-hrd');
     }
     /**
      * Display a listing of the resource.

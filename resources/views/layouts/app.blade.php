@@ -68,7 +68,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('home')}}">Home</a></li>
-                        @if(Auth::user()->type_user == "admin"||Auth::user()->type_user == 'hrd')
+                        @if(Auth::user()->type_user == 'admin')
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span>
                             </a>
@@ -89,6 +89,20 @@
                                 <li><a href="{{url('penggajian')}}">Penggajian</a></li>
                             </ul>
                         </li>
+                        @elseif(Auth::user()->type_user == 'keuangan')
+                                <li><a href="{{url('jabatan')}}">Jabatan</a></li>
+                                <li><a href="{{url('golongan')}}">Golongan</a></li>
+                                <li><a href="{{url('kategori_lembur')}}">Kategori Lembur</a></li>
+                                <li><a href="{{url('lembur_pegawai')}}">Lembur Pegawai</a></li>
+                                <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
+                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
+                                <li><a href="{{url('penggajian')}}">Penggajian</a></li>
+                        @elseif(Auth::user()->type_user == 'hrd')
+                                <li><a href="{{url('jabatan')}}">Jabatan</a></li>
+                                <li><a href="{{url('golongan')}}">Golongan</a></li>
+                                <li><a href="{{url('pegawai')}}">Pegawai</a></li>
+                                <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
+                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
                         @endif
                     </ul>
 

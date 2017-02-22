@@ -70,7 +70,7 @@
                             <td>{!! Form::label('Status') !!}</td>
                             <td>
                             <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                            {!! Form::text('status',null,['class'=>'form-control']) !!}
+                            {!! Form::select('status',['','Sudah Menikah'=>'Sudah Menikah','Belum Menikah'=>'Belum Menikah'],null,['class'=>'form-control']) !!}
                             </div>
                             @if ($errors->has('status'))
                                 <span class="help-block">
@@ -92,6 +92,11 @@
                             @endif
                             </td>
                         </tr>
+                        @if(isset($_GET['errors_ilegal']))
+                        <tr>
+                            <td colspan="2" class="danger">Mohon isi status dengan jumlah anak dengan benar</td>
+                        </tr>
+                        @endif
                         <tr>
                         </tr>
                 		<tr>
@@ -111,6 +116,11 @@
                         	@endif
 							</td>
                 		</tr>
+                        @if(isset($_GET['errors_sama']))
+                        <tr>
+                            <td colspan="2" class="danger">Data Yang Anda Masukan Ada yang sama</a></td>
+                        </tr>
+                        @endif
                 		<tr>
                 			<td colspan="2" align="right">{!! Form::submit('Update',['class'=>'btn btn-warning']) !!}</td>
                 		</tr>
