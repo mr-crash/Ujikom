@@ -50,11 +50,11 @@
 
                         <div class="col-md-6">
                             <?php 
-                                $selection = [''=>''];
                                 if (Auth::user()->type_user == 'admin') {
+                                    $selection = [''=>''];
                                     $selection['admin']='Admin';
-                                }
                                     $selection['hrd']='HRD';
+                                }
                                     $selection['pegawai']='Pegawai';
                              ?>
                             {!! Form::select('type_user',$selection,'',['class'=>'form-control']) !!}

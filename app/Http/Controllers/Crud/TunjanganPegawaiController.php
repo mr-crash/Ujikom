@@ -13,6 +13,16 @@ use Validator;
 class TunjanganPegawaiController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin-hrd');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Pegawai;
+use App\Penggajian;
+use App\Tunjangan;
+use App\lemburPegawai;
 
 class HomeController extends Controller
 {
@@ -26,6 +29,12 @@ class HomeController extends Controller
     public function index()
     {
         $pegawais = Pegawai::with('user','jabatan','golongan','tunjangan_pegawai')->get();
-        return view('home',compact('pegawais'));
+        $gajis = Penggajian::paginate(5);
+        $tunjangans = Tunjangan::all();
+        $lemburs = lemburPegawai::with('pegawai','kategori_lembur')->get();
+
+        // dd($pegawais,$gajis,$tunjangans,$lemburs);
+
+        return view('home',compact('pegawais','gajis','tunjangans','lemburs'));
     }
 }

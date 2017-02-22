@@ -25,6 +25,7 @@ class PegawaiController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin-hrd');
     }
     
     /**
@@ -83,7 +84,6 @@ class PegawaiController extends Controller
             'nip'=>'required|numeric|unique:pegawais|min:9',
             'jabatan_id' => 'required',
             'golongan_id' => 'required',
-            'foto' => 'required',
             ]);
         $validation = Validator::make(Request::all(), $validati);
 
@@ -100,12 +100,20 @@ class PegawaiController extends Controller
             'password' => bcrypt($data['password']),
             ]);
 
-        $file = Input::file('foto');
-        $destination_path = public_path().'/account/';
-        // $filename = $file->getClientOriginalName();
-        $filename = $user->id.'_'.$user->name.'_'.$file->getClientOriginalName();
-        $uploadSuccess = $file->move($destination_path,$filename);
-        $foto = $filename;
+        if(isset($_POST['foto']))
+        {
+            $file = Input::file('foto');
+            $destination_path = public_path().'/account/';
+            // $filename = $file->getClientOriginalName();
+            $filename = $user->id.'_'.$user->name.'_'.$file->getClientOriginalName();
+            $uploadSuccess = $file->move($destination_path,$filename);
+            $foto = $filename;            
+        }
+        else
+        {
+            $foto = 'default.png';
+        }
+
 
         Pegawai::create([
             'nip' => $data['nip'],

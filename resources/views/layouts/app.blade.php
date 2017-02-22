@@ -29,6 +29,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
 </head>
 <body>
 <div id="LWS">
@@ -105,6 +106,12 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <?php $data = App\Pegawai::where('user_id',Auth::user()->id)->first(); ?>
+                                        @if(isset($data->id))
+                                        <img src="{{url('account/'.$data->foto)}}" class="foto-profile-mini">
+                                        @else
+                                        <img src="{{url('account/default.png')}}" class="foto-profile-mini">
+                                        @endif
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

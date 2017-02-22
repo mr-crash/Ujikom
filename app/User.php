@@ -28,6 +28,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function user(){
+        if($this->users->type_user == 'admin')
+        {
+            return true;
+        }
+        return false;
+    }
 
     public function pegawai(){
         return $this->hasOne('App\Pegawai','user_id');
