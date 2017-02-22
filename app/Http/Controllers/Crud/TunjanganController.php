@@ -88,6 +88,10 @@ class TunjanganController extends Controller
         if ($validation->fails()) {
             return redirect('tunjangan/create')->withErrors($validation)->withInput();
         }
+        if($data['status']=='Belum Menikah'&&$data['jumlah_anak']>0)
+        {
+            return redirect('tunjangan/create?errors_ilegal');
+        }
         Tunjangan::create($data);
         return redirect('tunjangan');
     }

@@ -72,7 +72,7 @@
                             <td>{!! Form::label('Status') !!}</td>
                             <td>
                             <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
-                            {!! Form::select('status',['','Sudah Menikah','Belum Menikah'],'',['class'=>'form-control']) !!}
+                            {!! Form::select('status',['','Sudah Menikah'=>'Sudah Menikah','Belum Menikah'=>'Belum Menikah'],'',['class'=>'form-control']) !!}
                             </div>
                             @if ($errors->has('status'))
                                 <span class="help-block">
@@ -85,7 +85,7 @@
                             <td>{!! Form::label('Jumlah Anak') !!}</td>
                             <td>
                             <div class="form-group{{ $errors->has('jumlah_anak') ? ' has-error' : '' }}">
-                            {!! Form::number('jumlah_anak',null,['class'=>'form-control']) !!}
+                            {!! Form::number('jumlah_anak',0,['class'=>'form-control']) !!}
                             </div>
                             @if ($errors->has('jumlah_anak'))
                                 <span class="help-block">
@@ -94,6 +94,11 @@
                             @endif
                             </td>
                         </tr>
+                        @if(isset($_GET['errors_ilegal']))
+                        <tr>
+                            <td colspan="2" class="danger">Mohon isi status dengan jumlah anak dengan benar</td>
+                        </tr>
+                        @endif
                         <tr>
                         </tr>
                 		<tr>
