@@ -65,11 +65,12 @@
                             </div>
                             </td>
                         </tr>
+                        @if(isset($lemburs))
                         <tr>
                             <td>Jumlah Jam Lembur</td>
                             <td>
                             <div class="input-group">
-                                {!! Form::label('jumlah_jam',$data->jumlah_jam_lembur,['class'=>'form-control','id'=>'appendprepend','style'=>'text-align:right;']) !!}
+                                {!! Form::label('',$data->jumlah_jam_lembur,['class'=>'form-control','style'=>'text-align:right;']) !!}
                                 <span class="input-group-addon">Jam</span>
                             </div>
                             </td>
@@ -85,6 +86,7 @@
                             </div>
                             </td>
                         </tr>
+                        @endif
                         <tr>
                             <td>Total Gaji</td>
                             <td>

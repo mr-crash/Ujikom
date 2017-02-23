@@ -58,23 +58,12 @@
     						<td>Gaji Pokok</td>
     						<td>
     						<div class="input-group">
-								<span class="input-group-addon">Rp.</span>
-								<?php $data->gaji_pokok = number_format($data->gaji_pokok,0,',','.'); ?>
-								{!! Form::label('besaran_uang',$data->gaji_pokok,['class'=>'form-control','id'=>'appendprepend']) !!}
-								<span class="input-group-addon">.00</span>
-							</div>
-    						</td>
-    					</tr>
-    					<tr>
-    						<td>Total Gaji</td>
-    						<td>
-    						<div class="input-group">
-								<span class="input-group-addon">Rp.</span>
-								<?php $data->total_gaji = number_format($data->total_gaji,0,',','.'); ?>
-								{!! Form::label('besaran_uang',$data->total_gaji,['class'=>'form-control','id'=>'appendprepend']) !!}
-								<span class="input-group-addon">.00</span>
-							</div>
-    						</td>
+                                <span class="input-group-addon">Rp.</span>
+                                <?php $data->gaji_pokok = number_format($data->gaji_pokok,0,',','.'); ?>
+                                {!! Form::label('besaran_uang',$data->gaji_pokok,['class'=>'form-control','id'=>'appendprepend']) !!}
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                            </td>
     					</tr>
     					<tr>
     						<td>Tujangan<br>{{$tunjangan->status}} <?php if ($tunjangan->jumlah_anak == 0) {} else{echo 'jumlah anak '.$tunjangan->jumlah_anak;} ?></td>
@@ -87,6 +76,17 @@
 							</div>
 							</td>
     					</tr>
+                        </tr>
+                        <tr>
+                            <td>Total Gaji</td>
+                            <td>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp.</span>
+                                <?php $data->total_gaji = number_format($data->total_gaji,0,',','.'); ?>
+                                {!! Form::label('besaran_uang',$data->total_gaji,['class'=>'form-control','id'=>'appendprepend']) !!}
+                                <span class="input-group-addon">.00</span>
+                            </div>
+                            </td>
     					<tr>
     						<td>{!! Form::label('Status Pengambilan') !!}</td>
     						<td>

@@ -35,7 +35,7 @@
                             @if (isset($_GET['errors']))
                             <span class="help-block">
                                     <strong>Pegawai ini tidak memiliki tunjangan</strong>, 
-                                    <strong>Silahkan untuk membuatnya <a href="{{url('tunjangan','create')}}">disini</a></strong>
+                                    <strong>Silahkan untuk membuatnya <a href="{{url('tunjangan_pegawai','create')}}">disini</a></strong>
                             </span>
                             @endif
                             @if (isset($_GET['errors_nutadi']))

@@ -137,6 +137,7 @@ class PenggajianController extends Controller
         }
 
         $penggajian['gaji_pokok'] = $gaji_jabatan + $gaji_golongan;
+        $penggajian['total_gaji'] = 0;
         $penggajian['total_gaji'] = $penggajian['gaji_pokok']+$penggajian['jumlah_uang_lembur']+$tunjangan;
         if(!isset($penggajian['tunjangan_pegawai_id'])){
             return redirect('penggajian/'.'create'.'/?errors=notunjangan');
@@ -175,9 +176,16 @@ class PenggajianController extends Controller
     {
         $data = Penggajian::where('id', $id)->first();
         $pegawai = Pegawai::where('id',$data->tunjangan_pegawai->pegawai_id)->with('user','jabatan','golongan','tunjangan_pegawai')->first();
-        $lemburs = LemburPegawai::where('pegawai_id',$pegawai->id)->paginate(5);
-        $kategori_lembur = KategoriLembur::where('id',$lemburs->first()->kategori_lembur_id)->first();
+        $lemburs = LemburPegawai::where('pegawai_id',$pegawai->id)->get();
+        if (isset($lemburs->first()->kategori_lembur_id)) {
+            $kategori_lembur = KategoriLembur::where('id',$lemburs->first()->kategori_lembur_id)->first();
+        }
+        else{
+            $lemburs = null;
+            $kategori_lembur = null;
+        }
         $tunjangan = Tunjangan::where('id',$data->tunjangan_pegawai->kode_tunjangan_id)->first();
+        // dd($data,$pegawai,$lemburs,$kategori_lembur);
         return view('crud.penggajian.edit', compact('data','pegawai','lemburs','kategori_lembur','tunjangan'));
     }
 
