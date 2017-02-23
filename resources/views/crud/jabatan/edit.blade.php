@@ -1,6 +1,6 @@
 <?php $page = 'Update Jabatan' ?>
 <?php $root = 'jabatan' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url($root)}}">Jabatan</a> > <a href="{{url($root,$data->id)}}">{{$data->nama_jabatan}}</a>

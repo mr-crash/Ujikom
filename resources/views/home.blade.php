@@ -1,8 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('content')
 <div class="container">
-@if(Auth::user()->type_user == 'pegawai')
+<?php 
+ ?>
+@if(isset($pegawais->where('user_id',Auth::user()->id)->first()->id))
 <?php 
 	$pegawai = $pegawais->where('user_id',Auth::user()->id)->first();
 	$gajipokok = number_format($pegawai->jabatan->tunjangan_uang+$pegawai->golongan->tunjangan_uang,2,',','.');
@@ -138,6 +140,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 @else
     <div class="row">

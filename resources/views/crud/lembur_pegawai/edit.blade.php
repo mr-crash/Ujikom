@@ -1,6 +1,6 @@
 <?php $page = 'Update Lembur' ?>
 <?php $root = 'lembur_pegawai' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url($root)}}">Lembur Pegawai</a> > <a href="{{url($root,$data->id.'/edit')}}">Update</a>

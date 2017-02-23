@@ -1,6 +1,6 @@
 <?php $page = 'Penerimaan Gaji' ?>
 <?php $root = 'penggajian' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url($root)}}">Penggajian</a> > <a href="{{url($root,'create')}}">Penerimaan</a>

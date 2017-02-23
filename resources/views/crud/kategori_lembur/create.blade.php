@@ -1,6 +1,6 @@
 <?php $page = 'Create Kategori Lembur' ?>
 <?php $root = 'kategori_lembur' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('kategori_lembur')}}">Kategori Lembur</a> > <a href="{{url('kategori_lembur','create')}}">Create</a>

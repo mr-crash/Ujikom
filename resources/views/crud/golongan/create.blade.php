@@ -1,6 +1,6 @@
 <?php $page = 'Create Golongan' ?>
 <?php $root = 'golongan' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('golongan')}}">Golongan</a> > <a href="{{url('golongan','create')}}">Create</a>

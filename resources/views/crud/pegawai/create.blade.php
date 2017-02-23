@@ -1,6 +1,6 @@
 <?php $page = 'Create Pegawai' ?>
 <?php $root = 'pegawai' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('pegawai')}}">Pegawai</a> > <a href="{{url('pegawai','create')}}">Create</a>
@@ -55,6 +55,7 @@
                                     $selection['admin']='Admin';
                                     $selection['hrd']='HRD';
                                 }
+                                    $selection['bendahara']='bendahara';
                                     $selection['pegawai']='Pegawai';
                              ?>
                             {!! Form::select('type_user',$selection,'',['class'=>'form-control']) !!}

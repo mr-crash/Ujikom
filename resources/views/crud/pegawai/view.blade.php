@@ -1,6 +1,6 @@
 <?php $page = $data->user->name ?>
 <?php $root = 'pegawai' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('pegawai')}}">Pegawai</a> > <a href="{{url('pegawai','create')}}">View</a>
@@ -13,7 +13,7 @@
             <div class="panel panel-default">
                 <div class="panel-body" align="center">
                     <div class="foto-profile" style="background-image: url({{url('account',$data->foto)}})">
-                    <div class="foto-comment"><a href="{{url('account',$data->foto)}}" class="btn btn-default" style="background-color: #634338;color: #fff;">Image</a></div>
+                    <div class="foto-comment"><a href="{{url('account',$data->foto)}}" class="btn btn-default" style="background-color: #222;color: #fff;">Image</a></div>
                         <!-- <img src="{{url('account',$data->foto)}}" class="fp"> -->
                     </div>
                 </div>

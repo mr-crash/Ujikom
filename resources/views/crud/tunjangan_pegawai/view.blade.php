@@ -1,6 +1,6 @@
 <?php $page = 'View Tunjangan Pegawai' ?>
 <?php $root = 'tunjangan_pegawai' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a> > <a href="{{url('tunjangan_pegawai',$data->id)}}">View</a>

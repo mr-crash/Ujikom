@@ -86,10 +86,11 @@ class PenggajianController extends Controller
         }
         else
         {
-            $now = Carbon::now();
+            $now = Carbon::now()->setTimezone('UTC +7');
+            // dd($now);
 
             $kode_tunjangan_id = TunjanganPegawai::where('pegawai_id', $data['id'])->first()->id;
-            $penggajian = Penggajian::where('tunjangan_pegawai_id', $kode_tunjangan_id)->first();
+            $penggajian = Penggajian::where('tunjangan_pegawai_id', $kode_tunjangan_id)->orderBy('created_at','DESC')->first();
 
             if(isset($penggajian->id))
             {

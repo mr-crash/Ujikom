@@ -1,6 +1,6 @@
 <?php $page = 'Create Penggajian' ?>
 <?php $root = 'penggajian' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url($root)}}">Penggajian</a> > <a href="{{url($root,'create')}}">Create</a>
@@ -27,7 +27,10 @@
                             <select name="id" class="form-control">
                                 <option></option>
                                 @foreach($pegawais as $pegawai)
+                                @if(Auth::user()->id==$pegawai->user_id)
+                                @else
                                 <option value="{{$pegawai->id}}">{{$pegawai->user->name}}</option>
+                                @endif
                                 @endforeach
                             </select>
                             </div>

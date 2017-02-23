@@ -89,7 +89,7 @@
                                 <li><a href="{{url('penggajian')}}">Penggajian</a></li>
                             </ul>
                         </li>
-                        @elseif(Auth::user()->type_user == 'keuangan')
+                        @elseif(Auth::user()->type_user == 'bendahara')
                                 <li><a href="{{url('jabatan')}}">Jabatan</a></li>
                                 <li><a href="{{url('golongan')}}">Golongan</a></li>
                                 <li><a href="{{url('kategori_lembur')}}">Kategori Lembur</a></li>

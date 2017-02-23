@@ -43,11 +43,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
+                    <a href="{{url('home')}}">{{ config('app.name', 'Laravel') }}</a>
                 </div>
 
                 <div class="links">
-                    <a href="{{url('home')}}">Home</a>
                 </div>
             </div>
         </div>
@@ -64,7 +63,7 @@
                             if (width >= 100) {
                               clearInterval(id);
                               loading.style.display = 'none';
-                              body.style.background = '#634338';
+                              body.style.background = '#222';
                             }
                             else {
                               width=width+0.1;

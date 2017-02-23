@@ -1,6 +1,6 @@
 <?php $page = $data->user->name.' Edit' ?>
 <?php $root = 'pegawai' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url('pegawai')}}">Pegawai</a> > <a href="{{url('pegawai','update')}}">Update</a>
@@ -58,6 +58,7 @@
                                 if (Auth::user()->type_user == 'admin') {
                                     $selection['admin']='Admin';
                                 }
+                                    $selection['bendahara']='bendahara';
                                     $selection['hrd']='HRD';
                                     $selection['pegawai']='Pegawai';
                              ?>

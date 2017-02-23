@@ -12,7 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Penggajian.Cr4sh',
+    'name' => 'Payroll.Crash',
+    'layout' => 'clean',
     
     /*
     |--------------------------------------------------------------------------

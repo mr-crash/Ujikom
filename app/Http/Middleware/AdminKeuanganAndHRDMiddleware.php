@@ -15,7 +15,7 @@ class AdminKeuanganAndHRDMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check()&&$request->user()->type_user=='admin'||auth()->check()&&$request->user()->type_user=='hrd'||auth()->check()&&$request->user()->type_user=='keuangan')
+        if (auth()->check()&&$request->user()->type_user=='admin'||auth()->check()&&$request->user()->type_user=='hrd'||auth()->check()&&$request->user()->type_user=='bendahara')
         {
             return $next($request);
         }

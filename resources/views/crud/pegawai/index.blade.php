@@ -33,7 +33,7 @@ if (!isset($field_old)) {
 <a href="{{url($root)}}">Pegawai</a>
 @endsection
 
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('content')
 <div class="container">

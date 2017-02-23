@@ -1,6 +1,6 @@
 <?php $page = 'ID Golongan '.$data->id ?>
 <?php $root = 'golongan' ?>
-@extends('layouts.app')
+@extends('layouts.'.config('app.layout'))
 
 @section('footer')
 <a href="{{url($root)}}">Golongan</a> > <a href="{{url($root,$data->id)}}">{{$data->nama_golongan}}</a>

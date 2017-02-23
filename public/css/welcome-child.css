@@ -1,5 +1,5 @@
 body{
-	background-color: #634338;
+	background-color: #222;
 	/*background-image: url('/boy05.png');*/
 	font-variant: small-caps;
 	color: white;
@@ -12,7 +12,7 @@ body{
 }
 .links > a:hover{
 	background-color: white;
-	color: #634338;
+	color: #222;
 }
 div.creator{
 	position: fixed;
@@ -21,7 +21,7 @@ div.creator{
 	padding: 2px 3px 2px 3px;
 	margin: 0px 5px 5px 0px;
 	background-color: white;
-	color: #634338;
+	color: #222;
 	border-radius: 7px;
 	text-align: center;
 	font-variant: normal;
@@ -50,7 +50,7 @@ div.creator:hover{
 	    display: block;
     }
     body{
-    	background-color: #634338;
+    	background-color: #222;
     }
 }
 .form-control {
@@ -62,6 +62,6 @@ div.creator:hover{
     position: fixed;
     top: 0px;
     left: 0px;
-    background-color: #634338;
+    background-color: #222;
     height: 100vh;
   }
