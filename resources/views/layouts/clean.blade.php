@@ -184,7 +184,7 @@
                         Made in <span class="fa fa-heart fa-2x animated pulse"></span> SMK Assalaam
                     </p>
                     <p class="copyright">
-                        2017 &copy; Fathurrahman Hardi Ar-Rasyid
+                        2017 &copy; <a href="{{url('aboutus')}}">Fathurrahman Hardi Ar-Rasyid</a>
 					</p>
 
 				</div>
