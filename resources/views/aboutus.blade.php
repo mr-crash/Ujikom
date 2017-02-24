@@ -234,26 +234,26 @@
                     </div><!-- .row -->
 					
 					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="150" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">150</span>
+						<span data-percent="50" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">50</span>
                         </span>
 						<h3 class="text-center">Programming</h3>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="200" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">200</span>
+						<span data-percent="75" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">75</span>
                         </span>
 						<h3 class="text-center">Design</h3>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="100" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">100</span>
+						<span data-percent="80" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">80</span>
                         </span>
 						<h3 class="text-center">Marketing</h3>
 					</div>
 					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="175" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">175</span>
+						<span data-percent="10" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
+                            <span class="percent">10</span>
                         </span>
 						<h3 class="text-center">UI / UX</h3>
 					</div>
