@@ -11,9 +11,9 @@
 	<div class="row">
         <div class="col-md-12 col-md-offset-0">
 			<div class="panel panel-default">
-				<div class="panel-heading" align="center">ACTION</div>
+				<div class="panel-heading" align="center">Tindakan</div>
 				<div class="panel-body">
-					<a href="{{url($root,'create')}}" class="btn btn-block btn-success">Create</a></td>
+					<a href="{{url($root,'create')}}" class="btn btn-block btn-success">Tambah Data</a></td>
 				</div>
 			</div>
 		</div>

@@ -80,12 +80,12 @@
 						@else
                         @if(Auth::user()->type_user == 'admin')
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pengguna<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{url('pegawai')}}">Employee</a></li>
-                                <li><a href="{{url('jabatan')}}">Office</a></li>
-                                <li><a href="{{url('golongan')}}">Group</a></li>
+                                <li><a href="{{url('pegawai')}}">Pegawai</a></li>
+                                <li><a href="{{url('jabatan')}}">Jabatan</a></li>
+                                <li><a href="{{url('golongan')}}">Golongan</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -93,9 +93,9 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">                            
                                 <li><a href="{{url('kategori_lembur')}}">Kategori Lembur</a></li>
-                                <li><a href="{{url('lembur_pegawai')}}">Lembur Employee</a></li>
+                                <li><a href="{{url('lembur_pegawai')}}">Lembur Pegawai</a></li>
                                 <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
-                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Employee</a></li>
+                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
                                 <li><a href="{{url('penggajian')}}">Penggajian</a></li>
                             </ul>
                         </li>
@@ -104,12 +104,12 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{url('jabatan')}}">Office</a></li>
-                                <li><a href="{{url('golongan')}}">Group</a></li>
+                                <li><a href="{{url('jabatan')}}">Jabatan</a></li>
+                                <li><a href="{{url('golongan')}}">Golongan</a></li>
                                 <li><a href="{{url('kategori_lembur')}}">Kategori Lembur</a></li>
-                                <li><a href="{{url('lembur_pegawai')}}">Lembur Employee</a></li>
+                                <li><a href="{{url('lembur_pegawai')}}">Lembur Pegawai</a></li>
                                 <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
-                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Employee</a></li>
+                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
                                 <li><a href="{{url('penggajian')}}">Penggajian</a></li>
 							</ul>
                         </li>
@@ -118,11 +118,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{url('jabatan')}}">Office</a></li>
-                                <li><a href="{{url('golongan')}}">Group</a></li>
-                                <li><a href="{{url('pegawai')}}">Employee</a></li>
+                                <li><a href="{{url('jabatan')}}">Jabatan</a></li>
+                                <li><a href="{{url('golongan')}}">Golongan</a></li>
+                                <li><a href="{{url('pegawai')}}">Pegawai</a></li>
                                 <li><a href="{{url('tunjangan')}}">Kategori Tunjangan</a></li>
-                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Employee</a></li>
+                                <li><a href="{{url('tunjangan_pegawai')}}">Tunjangan Pegawai</a></li>
 							</ul>
                         </li>
                         @endif
@@ -131,7 +131,7 @@
 					<ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/login') }}">Masuk</a></li>
                             <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
@@ -152,7 +152,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Keluar
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -184,7 +184,7 @@
 
 
 					<p class="heart">
-                        Made in <span class="fa fa-heart fa-2x animated pulse"></span> SMK Assalaam
+                        Uji Kompetensi RPL <span class="fa fa-heart fa-2x animated pulse"></span> SMK Assalaam
                     </p>
                     <p class="copyright">
                         2017 &copy; <a href="{{url('aboutus')}}">Fathurrahman Hardi Ar-Rasyid</a>

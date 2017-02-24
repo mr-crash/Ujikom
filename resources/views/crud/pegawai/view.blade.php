@@ -25,12 +25,12 @@
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Data Akun</div>
+                <div class="panel-heading">Data Pengguna</div>
                 <div class="panel-body">
                     <table class="table">
                     <tr><td>
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label for="name" class="col-md-4 control-label">Name</label>
+                        <label for="name" class="col-md-4 control-label">Nama</label>
 
                         <div class="col-md-6">
                             {!! Form::label('name',$data->user->name,['class'=>'form-control']) !!}

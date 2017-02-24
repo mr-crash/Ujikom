@@ -19,10 +19,10 @@ if (!isset($field_old)) {
         <input class="form-control" id="appendbutton" type="text" name="search" value="<?php if (isset($search)) {echo($search);} ?>">
         <div class="input-group-btn">
             <button class="btn btn-primary" type="submit">
-                Search
+                Cari
             </button>
             <a href="{{url($root)}}" class="btn btn-danger">
-                Cancle
+                Batal
             </a>
         </div>
     </div>

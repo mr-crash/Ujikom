@@ -102,7 +102,7 @@ body {
 </style>
 <div class="login-page">
   <div class="form">
-    <h1>login</h1>
+    <h1>Payroll.Crash</h1>
     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -136,21 +136,21 @@ body {
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}>Ingat saya
                                     </label>
                                 </div>
                             </div>
                         </div>
-
+                        <br>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                    Masuk
                                 </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
+                                <br><br>
+                                <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                    Lupa kata sandi?
+                                </a> -->
                             </div>
                         </div>
                     </form>

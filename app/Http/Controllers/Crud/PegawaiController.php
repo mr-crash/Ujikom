@@ -10,6 +10,8 @@ use App\Jabatan;
 use App\Golongan;
 use App\User;
 use App\KategoriLembur;
+use App\TunjanganPegawai;
+use App\Tunjangan;
 use Request;
 use Validator;
 use Html;

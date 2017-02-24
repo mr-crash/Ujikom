@@ -19,10 +19,10 @@ if (!isset($field_old)) {
         <input class="form-control" id="appendbutton" type="text" name="search" value="<?php if (isset($search)) {echo($search);} ?>">
         <div class="input-group-btn">
             <button class="btn btn-primary" type="submit">
-                Search
+                Cari
             </button>
             <a href="{{url($root)}}" class="btn btn-danger">
-                Cancle
+                Batal
             </a>
         </div>
     </div>
@@ -49,7 +49,7 @@ if (!isset($field_old)) {
                 			<th><a href="{{url('pegawai/?sortBy=nip')}}">NIP</a></th>
                             <th>Nama</th>
                 			<th>Jabatan</th>
-                			<th colspan="3">Action</th>
+                			<th colspan="3" style="text-align: center !important;">Tindakan</th>
                 		</tr>
                         </thead>
                         <tbody>
@@ -59,15 +59,15 @@ if (!isset($field_old)) {
                 			<td>{{$data->nip}}</td>
                             <td>{{$data->user->name}}</td>
                 			<td>{{$data->jabatan->nama_jabatan}}</td>
-                			<td class="action-web"><a href="{{url($root,$data->id)}}" class="btn btn-default">View</a></td>
-                            <td class="action-web"><a href="{{route('pegawai.edit',$data->id)}}" class="btn btn-warning lebar">Edit</a></td>
+                			<td class="action-web"><a href="{{url($root,$data->id)}}" class="btn btn-default">Lihat</a></td>
+                            <td class="action-web"><a href="{{route('pegawai.edit',$data->id)}}" class="btn btn-warning lebar">Ubah</a></td>
                             <td class="action-web">
                             @if(Auth::user()->type_user=='admin')
                             {!! Form::open(['method'=> 'DELETE', 'route'=>['pegawai.destroy',$data->id]]) !!}
-                            {!! Form::submit('Delete', ['class'=>'btn btn-danger lebar']) !!}
+                            {!! Form::submit('Hapus', ['class'=>'btn btn-danger lebar']) !!}
                             {!! Form::close() !!}
                             @else
-                            {!! Form::label('','Delete',['class'=>'btn btn-danger lebar disabled']) !!}
+                            {!! Form::label('','Hapus',['class'=>'btn btn-danger lebar disabled']) !!}
                             @endif</td>
                             <td class="action-mobile dropdown" colspan="3">
                                 <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-expanded="false">

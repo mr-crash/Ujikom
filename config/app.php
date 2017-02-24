@@ -178,6 +178,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         'Collective\Html\HtmlServiceProvider',
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
 
         /*
          * Package Service Providers...
@@ -243,6 +244,7 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
 
         'Html' => Illuminate\Support\Facades\Html::class,
         'Input' => Illuminate\Support\Facades\Input::class,
