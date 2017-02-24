@@ -24,7 +24,7 @@
                             <div class="col-md-12 btn btn-danger disabled">Table Pegawai is Null</div>
                             @else
                             <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
-                            <select name="id" class="form-control">
+                            <select name="id" class="form-control" required="">
                                 <option></option>
                                 @foreach($pegawais as $pegawai)
                                 @if(Auth::user()->id==$pegawai->user_id)
@@ -53,6 +53,13 @@
                             @endif
                         </td>
                         </tr>
+                        @if (isset($_GET['errors_sudah']))
+                            <tr>
+                                <td class="danger" colspan="99">
+                                    <strong>Pegawai Sudah Digaji</strong>
+                                </td>
+                            </tr>
+                        @endif
                         <tr>
                             <td colspan="2" align="right">{!! Form::submit('Create',['class'=>'btn btn-success']) !!}</td>
                         </tr>

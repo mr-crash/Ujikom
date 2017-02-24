@@ -50,7 +50,7 @@ class PenggajianController extends Controller
         else{
             $datas = Penggajian::with('tunjangan_pegawai')->orderBy('created_at','DESC')->paginate(5);
         }
-        $fields = (['id','tunjangan_pegawai_id','jumlah_jam_lembur','jumlah_uang_lembur','gaji_pokok','total_gaji']);
+        $fields = (['id','tunjangan_pegawai_id','jumlah_jam_lembur','jumlah_uang_lembur','gaji_pokok','total_gaji','status_pengambilan']);
         $pegawais = Pegawai::with('user')->get();
         // dd($datas);
 
@@ -86,7 +86,7 @@ class PenggajianController extends Controller
         }
         else
         {
-            $now = Carbon::now()->setTimezone('UTC +7');
+            $now = Carbon::now('Asia/Jakarta');
             // dd($now);
 
             $kode_tunjangan_id = TunjanganPegawai::where('pegawai_id', $data['id'])->first()->id;
@@ -109,9 +109,13 @@ class PenggajianController extends Controller
             $penggajian['jumlah_jam_lembur']=0;
             $penggajian['jumlah_uang_lembur']=0;
             $uang_lembur = $kategori_lembur;
+            $now = Carbon::now('Asia/Jakarta');
             foreach ($pegawai->lembur_pegawai as $data) {
+                if($data->created_at->month==$now->month)
+                {
                 $penggajian['jumlah_jam_lembur']+=$data->jumlah_jam;
                 $penggajian['jumlah_uang_lembur']+=$kategori_lembur->besaran_uang*$data->jumlah_jam;
+                }
             }
         }
         else
@@ -145,7 +149,6 @@ class PenggajianController extends Controller
         }
 
         // dd($penggajian);
-
         $penggajian = Penggajian::create($penggajian);
         return redirect('penggajian');
     }

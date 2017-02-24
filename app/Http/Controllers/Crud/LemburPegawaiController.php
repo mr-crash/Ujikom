@@ -11,6 +11,7 @@ use App\User;
 use Request;
 use Validator;
 use DB;
+use Carbon\Carbon;
 
 class LemburPegawaiController extends Controller
 {
@@ -46,7 +47,7 @@ class LemburPegawaiController extends Controller
         }
         $users = User::all();
         $jabatans = Jabatan::all();
-        $fields = (['id','kode_lembur','kategori_lembur_id','pegawai_id','jumlah_jam']);
+        $fields = (['id','kategori_lembur_id','pegawai_id','jumlah_jam']);
         // dd($datas);
 
         return view('crud.lembur_pegawai.index', compact('datas','jabatans','users','fields','search','field_old'));
@@ -61,7 +62,8 @@ class LemburPegawaiController extends Controller
     {
         $kategori_lemburs = KategoriLembur::all();
         $pegawais = Pegawai::with('user')->get();
-        return view('crud.lembur_pegawai.create',compact('pegawais','kategori_lemburs'));
+        $now = Carbon::now('Asia/Jakarta');
+        return view('crud.lembur_pegawai.create',compact('pegawais','kategori_lemburs','now'));
     }
 
     /**
@@ -76,6 +78,17 @@ class LemburPegawaiController extends Controller
         $kategori_lemburs = KategoriLembur::all();
         $pegawais = Pegawai::with('user')->get();
         $data = Request::all();
+        $data['created_at'] = Carbon::createFromFormat('Y-m-d',$data['created_at']);
+        // dd($data['created_at']->day);
+        $old_data = LemburPegawai::where('pegawai_id',$data['pegawai_id'])->get();
+        foreach ($old_data as $old) {
+            if ($old->created_at->day==$data['created_at']->day) {
+                return redirect('lembur_pegawai/create?errors_sudah');
+            }
+            else{
+            }
+        }
+
         $validati = array(
             'pegawai_id'=>'required',
             'jumlah_jam'=>'required|max:3',
@@ -97,7 +110,7 @@ class LemburPegawaiController extends Controller
 
         $data['kategori_lembur_id'] = $check->id;
         // dd($data);
-        LemburPegawai::create($data);
+        $lembur = LemburPegawai::create($data);
 
         return redirect('lembur_pegawai');
     }

@@ -46,17 +46,16 @@ if (!isset($field_old)) {
                         @if(isset($datas->first()->id))
                         <thead>
                 		<tr>
+                            <th>Tanggal</th>
                             <th><a href="{{url('lembur_pegawai/?sortBy=pegawai_id')}}">Pegawai</a></th>
-                			<th>Jabatan</th>
                 			<th colspan="3">Action</th>
                 		</tr>
                         </thead>
                         <tbody>
                 		@foreach ($datas as $data)
                 		<tr>
+                            <td>{{$data->created_at->format('j F Y')}}</td>
                             <td>{{$users->where('id',$data->pegawai->user_id)->first()->name}}</td>
-                            <td>{{$jabatans->where('id',$data->pegawai->jabatan_id)->first()->nama_jabatan}}</td>
-                			<td>{{$data->jabatan}}</td>
                 			<td class="action-web"><a href="{{url($root,$data->id)}}" class="btn btn-default">View</a></td>
                             <td class="action-web"><a href="{{route('lembur_pegawai.edit',$data->id)}}" class="btn btn-warning lebar">Edit</a></td>
                             <td class="action-web">{!! Form::open(['method'=> 'DELETE', 'route'=>['lembur_pegawai.destroy',$data->id]]) !!}

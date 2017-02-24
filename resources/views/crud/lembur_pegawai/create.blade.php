@@ -44,31 +44,53 @@
                             @endif
                             </td>
                         </tr>
-                		<tr>
-                			<td>{!! Form::label('Jumlah Jam') !!}</td>
-                			<td>
-                			<div class="form-group{{ $errors->has('jumlah_jam') ? ' has-error' : '' }}">
-                			<div class="input-group">
-								{!! Form::number('jumlah_jam',null,['class'=>'form-control','id'=>'appendprepend','style'=>'text-align:right;']) !!}
-								<span class="input-group-addon">Jam</span>
-							</div>
-                			</div>
-                        	@if ($errors->has('jumlah_jam'))
-	                            <span class="help-block">
-	                                <strong>{{ $errors->first('jumlah_jam') }}</strong>
-	                            </span>
-                        	@endif
-							</td>
-                		</tr>
-                		<tr>
-                			<td colspan="2" align="right">
+                        <tr>
+                            <td>{!! Form::label('Jumlah Jam') !!}</td>
+                            <td>
+                            <div class="form-group{{ $errors->has('jumlah_jam') ? ' has-error' : '' }}">
+                            <div class="input-group">
+                                {!! Form::number('jumlah_jam',null,['class'=>'form-control','id'=>'appendprepend','style'=>'text-align:right;']) !!}
+                                <span class="input-group-addon">Jam</span>
+                            </div>
+                            </div>
+                            @if ($errors->has('jumlah_jam'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('jumlah_jam') }}</strong>
+                                </span>
+                            @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{!! Form::label('Jumlah Jam') !!}</td>
+                            <td>
+                            <div class="form-group{{ $errors->has('created_at') ? ' has-error' : '' }}">
+                            <div class="input-group">
+                                {!! Form::date('created_at',\Carbon\Carbon::now(),'',['class'=>'form-control']) !!}
+                            </div>
+                            </div>
+                            @if ($errors->has('created_at'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('created_at') }}</strong>
+                                </span>
+                            @endif
+                            </td>
+                        </tr>
+                    @if (isset($_GET['errors_sudah']))
+                        <tr>
+                            <td class="danger" colspan="99">
+                                <strong>Pegawai Sudah Lembur</strong>
+                            </td>
+                        </tr>
+                    @endif
+                        <tr>
+                            <td colspan="2" align="right">
                             @if(!isset($pegawais->first()->id))
                             {!! Form::submit('Create',['class'=>'btn btn-success','disabled']) !!}
                             @else
                             {!! Form::submit('Create',['class'=>'btn btn-success']) !!}
                             @endif
                             </td>
-                		</tr>
+                        </tr>
                 	</table>
                 	{!! Form::close() !!}
                 </div>

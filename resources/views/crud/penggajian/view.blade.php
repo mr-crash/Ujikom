@@ -147,7 +147,7 @@
     						</td>
     					</tr>
     					<tr>
-    						<td colspan="2"><h3>History Lembur</h3></td>
+    						<td colspan="2"><h3>History Lembur Di bulan {{$data->created_at->month}}</h3></td>
     					</tr>
     					<tr>
     						<td colspan="2">
@@ -158,11 +158,13 @@
 										<td>Jumlah Uang</td>
 									</tr>
     								@foreach($lemburs as $lembur)
+                                    @if($lembur->created_at->month==$data->created_at->month)
     								<tr>
     									<td>{{$lembur->created_at}}</td>
     									<td>{{$lembur->jumlah_jam}}</td>
     									<td>{{$lembur->jumlah_jam*$kategori_lembur->besaran_uang}}</td>
     								</tr>
+                                    @endif
     								@endforeach
     								<tr>
     									<td colspan="99">{{$lemburs->links()}}</td>

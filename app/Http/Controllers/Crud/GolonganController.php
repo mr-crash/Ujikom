@@ -40,7 +40,7 @@ class GolonganController extends Controller
         else{
             $datas = Golongan::orderBy('created_at','DESC')->paginate(5);
         }
-        $fields = (['kode_golongan','nama_golongan']);
+        $fields = (['id','kode_golongan','nama_golongan']);
         // dd($datas);
 
         return view('crud.golongan.index', compact('datas','fields','search','field_old'));

@@ -49,7 +49,7 @@ class PegawaiController extends Controller
         else{
             $datas = Pegawai::with('user','jabatan','golongan')->orderBy('created_at','DESC')->paginate(5);
         }
-        $fields = (['nip']);
+        $fields = (['id','nip','user_id','jabatan_id','golongan_id']);
         // dd($datas);
 
         return view('crud.pegawai.index', compact('datas','fields','search','field_old'));

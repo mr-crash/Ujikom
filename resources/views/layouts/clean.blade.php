@@ -36,9 +36,12 @@
 	<section id="home" class="pfblock-image screen-height">
         <div class="home-overlay"></div>
 		<div class="intro">
-			<div class="start">Hello, my name is Fathurrahman Hardi Ar-Rasyid and I am</div>
 			<h1>{{config('app.name')}}</h1>
-			<div class="start">Wellcome To My Project</div>
+			<div class="start">+ + +</div>
+            @if(isset($page))
+            <div class="start">{{$page}}</div>
+            @else
+            @endif
 		</div>
 
         <a href="#custom-collapse">

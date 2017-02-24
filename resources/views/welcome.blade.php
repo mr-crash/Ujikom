@@ -9,10 +9,10 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
+        <link href="/css/welcome.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        <link href="/css/welcome.css" rel="stylesheet">
         <link href="/css/welcome-child.css" rel="stylesheet">
         
     </head>

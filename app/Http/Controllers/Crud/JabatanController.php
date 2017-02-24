@@ -42,7 +42,7 @@ class JabatanController extends Controller
         else{
             $datas = Jabatan::orderBy('created_at','DESC')->paginate(5);
         }
-        $fields = (['id','kode_jabatan','nama_jabatan','tunjangan_uang']);
+        $fields = (['id','kode_jabatan','nama_jabatan']);
         // dd($datas);
 
         return view('crud.jabatan.index', compact('datas','fields','search','field_old'));

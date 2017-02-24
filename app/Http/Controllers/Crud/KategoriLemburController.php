@@ -42,7 +42,7 @@ class KategoriLemburController extends Controller
         else{
             $datas = KategoriLembur::with('jabatan','golongan')->orderBy('created_at','DESC')->paginate(5);
         }
-        $fields = (['kode_lembur']);
+        $fields = (['id','kode_lembur','jabatan_id','golongan_id']);
         // dd($datas);
 
         return view('crud.kategori_lembur.index', compact('datas','fields','search','field_old'));
